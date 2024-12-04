@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Doa & Dzikir - {{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css?v=23.04.21">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a855f7">
+    <meta name="msapplication-TileColor" content="#a855f7">
+</head>
+<body id="body">
+    <article class="max-w-[800px] container mx-auto flex-col">
+        {% if child %}
+        <div class="flex items-center gap-3 -mt-3">
+            <a href="./" class="back">
+                <span class="sr-only">Back</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z" clip-rule="evenodd" />
+                </svg>                  
+            </a>
+            <h1>{{title}}</h1>
+        </div>
+        {% endif %}
+
+        {% if doa or other_sakit %}
+        <nav class="filter">
+            <div class="max-w-[800px] container mx-auto">
+                <div class="filter-scroll scroll-smooth" id="filter-area">
+                    {% if doa %}
+                    <div class="pr-1 pl-5 lg:pl-0 py-4">
+                        <a href="doa-kebaikan.html" {% if kebaikan %} id="filter-active" {% else %} class="filter-item" {% endif %}>Memohon kebaikan</a>
+                    </div>
+                    <div class="px-1 py-4">
+                        <a href="doa-pengampunan.html" {% if pengampunan %} id="filter-active" {% else %} class="filter-item" {% endif %}>Memohon pengampunan</a>
+                    </div>
+                    <div class="px-1 py-4">
+                        <a href="doa-anak.html" {% if anak %} id="filter-active" {% else %} class="filter-item" {% endif %}>Untuk anak/keturunan</a>
+                    </div>
+                    <div class="px-1 py-4">
+                        <a href="doa-orangtua.html" {% if orangtua %} id="filter-active" {% else %} class="filter-item" {% endif %}>Untuk orangtua</a>
+                    </div>
+                    <div class="px-1 py-4">
+                        <a href="doa-ilmu.html" {% if ilmu %} id="filter-active" {% else %} class="filter-item" {% endif %}>Memohon ilmu</a>
+                    </div>
+                    <div class="pl-1 pr-5 py-4">
+                        <a href="doa-rizki.html" {% if rizki %} id="filter-active" {% else %} class="filter-item" {% endif %}>Memohon kebaikan rizki</a>
+                    </div>
+                    {% endif %}
+                    {% if other_sakit %}
+                    <div class="pr-1 pl-5 lg:pl-0 py-4">
+                        <a href="other-sakit-sendiri.html" {% if sendiri %} id="filter-active" {% else %} class="filter-item" {% endif %}>Untuk Sendiri</a>
+                    </div>
+                    <div class="pl-1 pr-5 py-4">
+                        <a href="other-sakit-oranglain.html" {% if oranglain %} id="filter-active" {% else %} class="filter-item" {% endif %}>Untuk Oranglain</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+
+        {% if sholat or dzikir %}
+        <div class="mt-10 text-slate-600 dark:text-slate-500">
+            <h3>Hukum Memakai Tasbih Untuk Berdzikir</h3>
+            <p class="mt-5 italic">"Diperbolehkan menggunakan tasbih, akan tetapi yang lebih utama adalah bertasbih dengan jari-jari tangan, karena Nabi ﷺ bersabda "Hitunglah dengan jar-jari, karena ia nanti bisa berbicara".</p>
+            <p class="mt-5 italic">Dan karena membaca tasbih bisa jadi menimbulkan riya', karena sering bertasbih dengan tasbih biasanya hatinya tidak hadir, melihat kanan kiri, maka jari-jari adalah lebih utama. (Fatwa al-'Utsaimin)</p>
+            <p class="mt-5"><a href="https://bekalislam.firanda.com/5421-hukum-memakai-tasbih-untuk-berdzikir.html" class="underline">https://bekalislam.firanda.com/5421-hukum-memakai-tasbih-untuk-berdzikir.html</a></p>
+        </div>
+        {% endif %}
+
+    </article>
+    {% if not home %}
+    {% include "_bottom-nav.html" %}
+    {% endif %}
+    <footer class="footer {% if home %}mt-auto{% endif%}">
+        {% if doa %}
+        <p class="dalil">ادْعُوا اللَّهَ وَأَنْتُمْ مُوقِنُونَ بِالإِجَابَةِ وَاعْلَمُوا أَنَّ اللَّهَ لاَ يَسْتَجِيبُ دُعَاءً مِنْ قَلْبٍ غَافِلٍ لاَهٍ</p>
+        <p class="mt-5 italic">"Berdo'alah kepada Allah dalam keadaan yakin akan dikabulkan, dan ketahuilah bahwa Allah tidak mengabulkan do'a dari hati yang lalai."</p>
+        <p class="mt-3">(HR. Tirmidzi no. 3479. Syaikh Al Albani mengatakan bahwa hadits ini hasan)</p>
+        <p class="mt-3">Sumber <a href="https://rumaysho.com/1734-allah-begitu-ekat-pada-orang-yang-berdoa.html" class="underline">Rumaysho</a></p>
+        <hr class="opacity-75 dark:opacity-10 my-8">
+        {% endif %}
+        {% if not other %}
+        <p>Kumpulan teks do'a dan dzikir mayoritas diambil dari aplikasi BekalIslam oleh <a href="https://bekalislam.firanda.com/" class="underline" target="_blank">Al Ustadz Firanda Andirja</a></p>
+        {% endif %}
+        <p class="mt-5">&copy; 2023 <a href="https://sidiqprihatno.github.io/" class="underline" target="_blank">Abu Maryam Assiddiq</a></p>
+    </footer>
+    <script>
+        window.addEventListener("beforeinstallprompt", (beforeInstallPromptEvent) => {
+            beforeInstallPromptEvent.preventDefault(); // Prevents immediate prompt display
+
+            // Shows prompt after a user clicks an "install" button
+            installButton.addEventListener("click", (mouseEvent) => {
+                // you should not use the MouseEvent here, obviously
+                beforeInstallPromptEvent.prompt();
+            });
+
+            installButton.hidden = false; // Make button operable
+        });
+
+        {% if doa %}
+        var screen = document.documentElement.clientWidth;
+        const filterScroll = document.getElementById('filter-area');
+        const filter = document.getElementById('filter-active');
+        let position = filter.offsetLeft;
+
+        if (screen <= 1024) {
+            position = position - 20
+        } else {
+            position = position - (screen - 800)
+        }
+
+        filterScroll.scrollLeft = position;
+        
+        {% endif %}
+
+        {% if sholat or dzikir %}
+
+        let dzikir = document.getElementsByClassName('clickable button');
+        let counter = 0;
+        
+        document.addEventListener('click', function(event){
+            let parent = event.target.parentElement;
+            let dzikirMax = parent.dataset.dzikir;
+            let dzikirCount = parent.querySelector('.card-count');
+            let dzikirCounter = parseInt(dzikirCount.innerHTML);
+
+            console.log(dzikirCount);
+
+            parent.classList.add('counted');
+            
+            if (dzikirCounter < dzikirMax) {
+                dzikirCounter++;
+                dzikirCount.innerHTML = dzikirCounter;
+                parent.classList.add('clicked');
+                
+                setTimeout(function() {
+                    parent.classList.remove('clicked');
+                }, 100)
+            } 
+            
+            if (dzikirCounter == dzikirMax) {
+                parent.classList.add('completed');
+                parent.classList.remove('clickable');
+                dzikirCount.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>'
+            }   
+
+        })
+
+        {% endif %}
+
+        {% if not home %}
+        // prevent unwanted space when scrolling down on android
+        var repositionKey = false;
+
+        function onResize() {
+        repositionKey = !repositionKey;
+        document.getElementById("hiddenDiv").innerHTML = repositionKey;
+        }
+
+        addEventListener("resize", onResize);
+
+        // change arabic font size
+        var doa = document.getElementById('body');
+
+        function changeFontSize(size) {
+           
+           if (size != '') {
+               doa.className = '';
+               doa.classList.add(size);
+            } else {
+                doa.className = '';
+            }
+
+            localStorage.setItem("fontSize", size);
+        }
+
+        var fontSize = localStorage.getItem("fontSize");
+        if (fontSize != '') {
+            doa.classList.add(fontSize);
+        }
+
+        // back to top
+        function backTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+
+        {% endif %}
+
+    </script>
+</body>
+</html>

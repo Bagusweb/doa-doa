@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-2xl font-bold leading-5;
+    }
+    h2 {
+        @apply text-xl font-bold leading-5;
+    }
+    h3 {
+        @apply text-base font-bold leading-5;
+    }
+    @font-face {
+        font-family: "Kitab";
+        src: url(./fonts/ScheherazadeNew-Regular.woff);
+        unicode-range: U+200?, U+60C, U+618-61B, U+61F, U+621-63A, U+640-655, U+65C, U+660-66C, U+670-671, U+6CC, U+6D4, U+6D6-6DD, U+6DF-6E8, U+6EA-6ED, U+8F0-8F3, U+FD3E-FD3F, U+FDF2;
+    }
+    @font-face {
+        font-family: "Kitab";
+        src: url(./fonts/ScheherazadeNew-Regular.woff2);
+        unicode-range: U+200?, U+60C, U+618-61B, U+61F, U+621-63A, U+640-655, U+65C, U+660-66C, U+670-671, U+6CC, U+6D4, U+6D6-6DD, U+6DF-6E8, U+6EA-6ED, U+8F0-8F3, U+FD3E-FD3F, U+FDF2;
+    }
+}
+
+/* custom class */
+#body {
+    @apply min-h-full flex flex-col px-5 py-8 bg-slate-100 dark:bg-slate-950 dark:text-slate-200 scroll-smooth select-none;
+}
+
+.footer {
+    @apply text-sm text-center text-slate-600 dark:text-slate-500 pt-5;
+}
+
+/* menu */
+.heading {
+    @apply flex items-center gap-3 mb-3;
+}
+
+.back {
+    @apply inline-block p-2 -ml-2;
+}
+.menu-active,
+.menu {
+    @apply px-5 py-8 flex flex-col bg-white rounded-3xl;
+}
+.menu {
+    @apply dark:bg-slate-900 text-center font-semibold text-slate-500 relative justify-center items-center;
+}
+.menu-active {
+    @apply border bg-gradient-to-br text-white border-slate-100 dark:border-slate-950 text-center font-semibold justify-center items-center;
+}
+.menu-active.blue {
+    @apply from-purple-500  to-blue-500;
+}
+.menu-active.green {
+    @apply from-green-500 to-blue-500;
+}
+.menu-active.sky {
+    @apply from-cyan-400 to-blue-500;
+}
+.menu-active.orange {
+    @apply from-orange-500 to-blue-500;
+}
+.menu-soon {
+    @apply text-xs py-1 px-3 rounded-t-xl absolute bottom-0 bg-slate-50 text-slate-400 dark:bg-slate-800 dark:bg-opacity-40 dark:text-slate-600;
+}
+
+.menu-other,
+.menu-other-active {
+    @apply capitalize py-4 pl-6 pr-3 rounded-2xl bg-white dark:bg-slate-900 flex items-center justify-between font-semibold;
+}
+.menu-other {
+    @apply text-slate-400 dark:text-slate-700;
+}
+.menu-other-active {
+    @apply text-blue-500;
+}
+
+/* filter */
+.filter {
+    @apply -mx-5 mb-5;
+}
+.filter-scroll {
+    @apply flex flex-nowrap overflow-x-auto whitespace-nowrap;
+}
+.filter-item {
+    @apply bg-slate-300 hover:bg-white dark:bg-slate-700 dark:hover:bg-slate-800;
+}
+.filter-item,
+#filter-active {
+    @apply py-2 px-4 rounded-full;
+}
+#filter-active {
+    @apply bg-gradient-to-br from-purple-600 to-blue-600 text-white;
+}
+
+/* content item */
+.number {
+    @apply rounded-full w-8 h-8 px-3 bg-slate-300 flex items-center justify-center dark:bg-slate-700;
+}
+.card {
+    @apply bg-white rounded-3xl px-5 pt-2 pb-5 dark:bg-slate-900;
+}
+.card.clickable {
+    @apply relative transition-transform ring-4 dark:ring-slate-800/75 ring-slate-200/75;
+}
+.card.completed {
+    @apply relative dark:bg-slate-800 bg-slate-200;
+}
+.card.completed button {
+    @apply cursor-default;
+}
+.card.clickable.clicked {
+    @apply scale-90 dark:bg-slate-800 bg-slate-50;
+}
+.card.clickable:not(.counted) .card-count {
+    @apply hidden;
+}
+.card-click-area {
+    @apply absolute left-0 bottom-0 w-full h-full rounded-3xl z-10;
+}
+.card-count {
+    @apply bg-green-500 text-white absolute w-10 h-10 flex items-center justify-center rounded-full -top-3 -left-3 ring-4 ring-green-300/25 font-bold;
+}
+.card-hint {
+    @apply text-xs text-slate-500 block text-center mt-5 -mb-2 italic;
+}
+.card:not(.clickable) .card-click-area {
+    @apply hidden;
+}
+.card:not(.completed) .card-count {
+    @apply bg-blue-500 ring-blue-300/25;
+}
+.card:not(.completed) .card-hint {
+    @apply text-blue-500;
+}
+
+/* typography */
+.doa {
+   @apply font-kitab text-xl/[2] md:text-3xl/[2] mt-5 text-right;
+}
+#body.doa-x2 .doa {
+    @apply text-2xl/[2] md:text-4xl/[2];
+}
+#body.doa-x3 .doa {
+    @apply text-3xl/[2] md:text-5xl/[2];
+}
+
+.dalil {
+    @apply font-kitab text-base/[2];
+}
+
+/* Navbar */
+.change-size-item {
+    @apply w-10 h-10 flex items-center justify-center rounded-full relative;
+}
+.change-size-state {
+    @apply w-10 h-10 absolute left-[52px] top-1 bg-white dark:bg-slate-950 rounded-full z-0 transition-all;
+}
+#body.doa-x2 .change-size-state {
+    @apply left-[100px];
+}
+#body.doa-x3 .change-size-state {
+    @apply left-[148px];
+}

@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "concurrently": "^8.0.1",
+    "nunjucks-cli": "^1.0.0",
+    "prettier-cli-watcher": "^1.0.6",
+    "tailwindcss": "^3.3.1"
+  },
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./tailwind.css -o ./style.css --watch",
+    "nunjucks": "nunjucks *.html -p templates -o ./ -w",
+    "build": "concurrently \"npm run tailwind\" \"npm run nunjucks\""
+  }
+}

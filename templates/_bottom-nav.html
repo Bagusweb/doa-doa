@@ -1,0 +1,35 @@
+<nav id="bottom-navbar" class="sticky bottom-0 bg-gradient-to-t dark:from-slate-950 from-slate-100 pb-5 pt-8 mt-auto z-40 -mx-5">
+    <div class="max-w-lg container mx-auto">
+        <div class="flex justify-center p-1 gap-3">
+            <div class="rounded-full dark:bg-white bg-black bg-opacity-10 dark:bg-opacity-10 backdrop-blur-xl flex items-center relative">
+                <div class="h-12 w-12 flex items-center justify-center dark:text-slate-950 text-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                    </svg>                  
+                </div>
+                <button class="p-1 relative z-10" onclick="changeFontSize('doa-x1')">
+                    <span class="change-size-item">
+                        1<small class="ml-0.5">x</small>
+                    </span>
+                </button>
+                <button class="p-1 relative z-10" onclick="changeFontSize('doa-x2')">
+                    <span class="change-size-item">
+                        2<small class="ml-0.5">x</small>
+                    </span>
+                </button>
+                <button class="p-1 relative z-10" onclick="changeFontSize('doa-x3')">
+                    <span class="change-size-item">
+                        3<small class="ml-0.5">x</small>
+                    </span>
+                </button>
+                <span class="change-size-state"></span>
+            </div>
+            <button class="w-12 h-12 rounded-full bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-10 backdrop-blur-xl flex items-center justify-center" onclick="backTop()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div id="hiddenDiv" class="fixed text-transparent"></div>
+</nav>
